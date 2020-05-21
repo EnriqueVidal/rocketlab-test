@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import Home from './pages/Home.bs';
+import Home from './pages/Home';
 
 interface Route {
   component: (props: any) => ReactElement;

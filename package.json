@@ -40,6 +40,7 @@
     "babel-jest": "^25.4.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-styled-components": "^1.10.7",
     "babel-plugin-transform-assets-import-to-string": "^1.2.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bs-enzyme": "^0.6.1",
@@ -94,6 +95,7 @@
   },
   "dependencies": {
     "@moox/bs-react-helmet": "^2.1.0",
+    "@types/styled-components": "^5.1.0",
     "body-parser": "^1.19.0",
     "bs-css-emotion": "^1.2.0",
     "bs-guid": "^1.0.1",
@@ -107,7 +109,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-router-dom": "^5.1.2",
-    "reason-react": "^0.7.1"
+    "reason-react": "^0.7.1",
+    "styled-components": "^5.1.0"
   },
   "engines": {
     "node": ">= 11.0.0",
