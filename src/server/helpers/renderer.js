@@ -1,14 +1,16 @@
 import { renderToString } from 'react-dom/server';
+import { ServerStyleSheet } from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { isDevelopment } from './env-access';
 
 export default (Component) => {
-  const content = renderToString(Component);
+  const sheet = new ServerStyleSheet();
+  const content = renderToString(sheet.collectStyles(Component));
   const helmet = Helmet.renderStatic();
   const staticStyles = isDevelopment ? '' : '<link rel="stylesheet" href="/styles.css">';
 
   const template = `<!doctype html>
-    <html lang="en-US" class="has-navbar-fixed-top">
+    <html lang="en-US">
       <head>
         <meta charset="utf-8">
         <meta name="viewport"  content="width=device-width, initial-scale=1">
@@ -16,6 +18,8 @@ export default (Component) => {
         ${helmet.title.toString()}
         ${helmet.meta.toString()}
         ${staticStyles}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://material-icons.github.io/material-icons-font/css/all.css">
         <script src="/vendors.js"></script>
       </head>
       <body>
