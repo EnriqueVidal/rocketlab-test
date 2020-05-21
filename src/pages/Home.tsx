@@ -6,9 +6,9 @@ const Home = () => (
   <div className="content is-fluid">
     <form className="form">
       <div className="field">
-        <label className="label">State</label>
+        <label className="label" htmlFor="states">State</label>
         <div className="control">
-          <TypeAhead options={states} placeholder="Search State or Territory" />
+          <TypeAhead id="states" options={states} placeholder="Search State or Territory" />
         </div>
       </div>
     </form>

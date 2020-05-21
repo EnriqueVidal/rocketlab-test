@@ -12,6 +12,7 @@ exports[`<App /> it renders correctly 1`] = `
     >
       <label
         className="label"
+        htmlFor="states"
       >
         State
       </label>
@@ -23,6 +24,7 @@ exports[`<App /> it renders correctly 1`] = `
         >
           <input
             className="TypeAhead__SearchInput-udfy0h-1 ffyngv input"
+            id="states"
             onChange={[Function]}
             onFocus={[Function]}
             placeholder="Search State or Territory"

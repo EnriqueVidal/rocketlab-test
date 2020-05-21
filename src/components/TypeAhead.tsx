@@ -5,6 +5,7 @@ import { useFilteredList } from '../hooks/useFilteredList';
 import { useSearch, SearchState } from '../hooks/useSearch';
 
 interface Props {
+  id: string;
   onChange?: (option: string) => void;
   options: string[];
   placeholder: string;
@@ -60,7 +61,9 @@ const defaultInputs: SearchState = {
   selected: '',
 };
 
-const TypeAhead = ({ onChange, options, placeholder }: Props) => {
+const TypeAhead = ({
+  id, onChange, options, placeholder,
+}: Props) => {
   const { focused, toggle } = useToggle();
   const { items, filter, reset } = useFilteredList(options);
   const { inputs, search, select } = useSearch(defaultInputs);
@@ -84,6 +87,7 @@ const TypeAhead = ({ onChange, options, placeholder }: Props) => {
     <Wrapper className="control has-icons-right">
       <SearchInput
         className="input"
+        id={id}
         onChange={handleChange}
         onFocus={toggle}
         placeholder={placeholder}
