@@ -1,14 +1,6 @@
 import * as React from 'react';
 import TypeAhead from '../components/TypeAhead';
-
-const states = [
-  'New South Wales',
-  'Victoria',
-  'Queensland',
-  'Western Australia',
-  'South Australia',
-  'Tasmania',
-];
+import { states } from '../data/au-states';
 
 const Home = () => (
   <div className="content is-fluid">
