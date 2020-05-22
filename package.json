@@ -95,6 +95,7 @@
   "dependencies": {
     "@moox/bs-react-helmet": "^2.1.0",
     "@types/styled-components": "^5.1.0",
+    "@types/uuid": "^8.0.0",
     "body-parser": "^1.19.0",
     "bs-css-emotion": "^1.2.0",
     "bs-guid": "^1.0.1",
@@ -109,7 +110,8 @@
     "react-helmet": "^6.0.0",
     "react-router-dom": "^5.1.2",
     "reason-react": "^0.7.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^5.1.0",
+    "uuid": "^8.1.0"
   },
   "engines": {
     "node": ">= 11.0.0",

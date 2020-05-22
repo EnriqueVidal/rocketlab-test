@@ -23,6 +23,7 @@ export default (Component) => {
       </head>
       <body>
         <section id="app">${content}</section>
+        <div id="bottomPortal"></div>
         <script async src="/bundle.js"></script>
       </body>
     </html>`;
