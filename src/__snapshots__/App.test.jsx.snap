@@ -3,7 +3,7 @@
 exports[`<App /> it renders correctly 1`] = `
 Array [
   <div
-    className="Logo__Wrapper-sc-93jl4l-0 iSQlbp"
+    className="Logo__Wrapper-sc-93jl4l-0 iqnUmW"
   >
     <img
       alt="Crunch Accounting"
@@ -19,7 +19,7 @@ Array [
     className="page"
   >
     <div
-      className="Bar__Wrapper-zz9hha-0 cGMqEf columns is-mobile is-vcentered"
+      className="Bar__Wrapper-zz9hha-0 fAeZLA columns is-mobile is-vcentered"
     >
       <div
         className="column"
@@ -38,11 +38,16 @@ Array [
         >
           <button
             className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary is-inverted"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
           >
             Cancel
           </button>
           <button
             className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary"
+            disabled={false}
+            type="button"
           >
             Save
           </button>

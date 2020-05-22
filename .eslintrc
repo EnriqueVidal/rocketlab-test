@@ -30,7 +30,8 @@
     "jsx-a11y/label-has-associated-control": ["off"],
     "no-unexpected-multiline": ["warn"],
     "react/prop-types": ["off"],
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "react/static-property-placement": ["off"]
   },
 
   "plugins": [ 

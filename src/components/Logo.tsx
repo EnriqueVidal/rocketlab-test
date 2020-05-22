@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   position: sticky;
   top: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 39;
 `;
 
 const Image = styled.img`

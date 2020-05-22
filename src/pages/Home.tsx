@@ -6,11 +6,34 @@ import Bar from '../components/Bar';
 import Field from '../components/Field';
 import Footer from '../components/Footer';
 import HorizontalField from '../components/HorizontalField';
+import Modal from '../components/Modal';
 import ThinButton from '../components/ThinButton';
 import TypeAhead from '../components/TypeAhead';
 import { states } from '../data/au-states';
 
+const CancelModal = ({ show, onClose }) => (
+  <Modal show={show} onClose={onClose}>
+    {(close) => (
+      <div className="modal-card">
+        <header className="modal-card-head">
+          <p className="modal-card-title">Are you sure?</p>
+        </header>
+        <section className="modal-card-body">
+          <p>You&apos;re about to cancel, this will clear out your form</p>
+        </section>
+        <footer className="modal-card-foot">
+          <ThinButton primary disabled>Reset</ThinButton>
+          <ThinButton primary inverted onClick={close}>Cancel</ThinButton>
+        </footer>
+      </div>
+    )}
+  </Modal>
+);
+
 const Home = () => {
+  const [showCancel, setCancel] = React.useState(false);
+  const toggleCancel = () => setCancel((show) => !show);
+
   const uniformHeading = classname(
     'subtitle',
     'has-text-primary',
@@ -28,10 +51,11 @@ const Home = () => {
       <Helmet defaultTitle="Create Account" />
       <Bar title="Create Contact">
         <div className="buttons is-right">
-          <ThinButton primary inverted>Cancel</ThinButton>
+          <ThinButton primary inverted onClick={toggleCancel}>Cancel</ThinButton>
           <ThinButton primary>Save</ThinButton>
         </div>
       </Bar>
+      <CancelModal show={showCancel} onClose={toggleCancel} />
       <div className="section">
         <div className="containter is-fluid">
           <form className="form">
