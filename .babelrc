@@ -32,7 +32,7 @@
         [
           "transform-assets-import-to-string",
           {
-            "baseDir": "/",
+            "baseDir": "/static/images",
             "flatten": true,
             "extensions": [
               ".gif",

@@ -16,6 +16,7 @@ module.exports = {
   ],
   moduleNameMapper: {
     '\\.(css|s[ac]ss)$': '<rootDir>/node_modules/jest-css-modules',
+    '\\.(png|jpe?g)$': '<rootDir>/config/fileTransformer.js',
   },
   transform: {
     '^.+\\.[jt]sx?': 'babel-jest',

@@ -1,88 +1,138 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<App /> it renders correctly 1`] = `
-<div
-  className="content is-fluid"
->
-  <form
-    className="form"
+Array [
+  <div
+    className="Logo__Wrapper-sc-93jl4l-0 gVNviW"
+  >
+    <img
+      alt="Crunch Accounting"
+      className="Logo__Image-sc-93jl4l-1 dlLYpb"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
+    />
+  </div>,
+  <div
+    className="page"
   >
     <div
-      className="field"
+      className="Bar__Wrapper-zz9hha-0 bwbyjy columns is-vcentered"
     >
-      <label
-        className="label"
-        htmlFor="states"
-      >
-        State
-      </label>
       <div
-        className="control"
+        className="column"
+      >
+        <h1
+          className="subtitle has-text-white"
+        >
+          Create Contact
+        </h1>
+      </div>
+      <div
+        className="column is-one-quarter"
       >
         <div
-          className="TypeAhead__Wrapper-udfy0h-0 ewRyZB control has-icons-right"
+          className="buttons is-right"
         >
-          <input
-            className="TypeAhead__SearchInput-udfy0h-1 ffyngv input"
-            id="states"
-            onChange={[Function]}
-            onFocus={[Function]}
-            placeholder="Search State or Territory"
-            type="text"
-            value=""
-          />
-          <span
-            className="icon is-small is-right"
+          <button
+            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary is-inverted"
           >
-            <i
-              className="TypeAhead__SearchIcon-udfy0h-4 bZKGly material-icons"
-            >
-               search 
-            </i>
-          </span>
-          <ul
-            className="TypeAhead__OptionList-udfy0h-2 bgYScN"
+            Cancel
+          </button>
+          <button
+            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary"
           >
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              New South Wales
-            </li>
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              Victoria
-            </li>
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              Queensland
-            </li>
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              Western Australia
-            </li>
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              South Australia
-            </li>
-            <li
-              className="TypeAhead__SelectableItem-udfy0h-3 GiaRB"
-              onClick={[Function]}
-            >
-              Tasmania
-            </li>
-          </ul>
+            Save
+          </button>
         </div>
       </div>
     </div>
-  </form>
-</div>
+    <div
+      className="content is-fluid"
+    >
+      <form
+        className="form"
+      >
+        <div
+          className="field"
+        >
+          <label
+            className="label"
+            htmlFor="states"
+          >
+            State
+          </label>
+          <div
+            className="control"
+          >
+            <div
+              className="TypeAhead__Wrapper-udfy0h-0 ewRyZB control has-icons-right"
+            >
+              <input
+                className="input is-radiusless"
+                id="states"
+                onChange={[Function]}
+                onFocus={[Function]}
+                placeholder="Search State or Territory"
+                type="text"
+                value=""
+              />
+              <span
+                className="icon is-small is-right"
+              >
+                <i
+                  className="TypeAhead__SearchIcon-udfy0h-3 lewkZx material-icons"
+                >
+                   search 
+                </i>
+              </span>
+              <ul
+                className="TypeAhead__OptionList-udfy0h-1 gNaUim"
+              >
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  New South Wales
+                </li>
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  Victoria
+                </li>
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  Queensland
+                </li>
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  Western Australia
+                </li>
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  South Australia
+                </li>
+                <li
+                  className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
+                  onClick={[Function]}
+                >
+                  Tasmania
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+]
 `;

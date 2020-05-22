@@ -88,7 +88,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               limit: 10000,
-              name: 'static/images/[name].[hash:8].[ext]',
+              name: 'static/images/[name].[ext]',
             },
           },
 
