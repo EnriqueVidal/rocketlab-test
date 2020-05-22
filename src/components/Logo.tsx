@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import logo from '../assets/logo.png';
 
 const Wrapper = styled.div`
+  background-color: #F8F8F8;
   height: 71px;
   left: 0;
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 999;
 `;
 
 const Image = styled.img`

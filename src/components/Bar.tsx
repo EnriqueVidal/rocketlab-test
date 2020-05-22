@@ -9,14 +9,15 @@ const Wrapper = styled.div`
   padding 0 10px;
   top: 71px;
   width: 100%;
+  z-index: 999;
 `;
 
 const Bar = ({ children, title }) => (
-  <Wrapper className="columns is-vcentered">
+  <Wrapper className="columns is-mobile is-vcentered">
     <div className="column">
-      <h1 className="subtitle has-text-white">{title}</h1>
+      <h1 className="subtitle has-text-white is-size-4">{title}</h1>
     </div>
-    <div className="column is-one-quarter">
+    <div className="column">
       {children}
     </div>
   </Wrapper>
