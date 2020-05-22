@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
+
 import Logo from './components/Logo';
 import Error404 from './pages/Error404.bs';
 import routes from './routes';
