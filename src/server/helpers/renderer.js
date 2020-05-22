@@ -19,7 +19,6 @@ export default (Component) => {
         ${helmet.meta.toString()}
         ${staticStyles}
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="https://material-icons.github.io/material-icons-font/css/all.css">
         <script src="/vendors.js"></script>
       </head>
       <body>

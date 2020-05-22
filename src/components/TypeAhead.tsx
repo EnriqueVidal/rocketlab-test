@@ -21,11 +21,6 @@ const Wrapper = styled.div`
   justify-content: center;
 `;
 
-const SearchInput = styled.input`
-  border: 1px solid #ddd;
-  border-radius: 0;
-`;
-
 const OptionList = styled.ul`
   margin: 0px !important;
   border-bottom: 1px solid #bbb;
@@ -85,8 +80,8 @@ const TypeAhead = ({
 
   return (
     <Wrapper className="control has-icons-right">
-      <SearchInput
-        className="input"
+      <input
+        className="input is-radiusless"
         id={id}
         onChange={handleChange}
         onFocus={toggle}
