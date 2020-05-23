@@ -1,6 +1,11 @@
-$body-background-color: #F8F8F8;
+/* colors */
+$body-background-color: #f8f8f8;
+$dark-blue: #06198b;
+$navy-blue: #32344f;
+
+/* Theme override */
 $footer-background-color: $body-background-color;
-$primary: #FE7C00;
+$primary: #fe7C00;
 
 @charset "utf-8";
 @import "~bulma/bulma";
@@ -10,9 +15,21 @@ $primary: #FE7C00;
 
   .content {
     padding-top: 2rem;
+
+    &.is-first {
+      padding-top: 1rem;
+    }
   }
 }
 
 .has-around-padding {
   padding: 0 15px;
+}
+
+.has-backgroud-dark-blue {
+  background-color: $dark-blue;
+}
+
+.has-text-navy-blue {
+  color: $navy-blue;
 }

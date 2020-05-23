@@ -34,10 +34,25 @@ export const useValidations = (rules) => {
   const isValid = (field: string) => !isInvalid(field);
   const resetErrors = () => setErrors([]);
 
-  const validate = (field: string, value: string) => {
+  const validate_ = (field: string, value: string) => {
     const validator = rules[field];
-    if (typeof validator !== 'function') return undefined;
-    return validator(value) ? clearError(field) : addError(field);
+    if (typeof validator !== 'function') return true;
+    return validator(value);
+  };
+
+  const validate = (field: string, value: string) => (
+    validate_(field, value) ? clearError(field) : addError(field)
+  );
+
+  const validateAll = (dictionary, callback) => {
+    const allErrors = Object.keys(dictionary).reduce((errors, key) => (
+      validate_(key, dictionary[key]) ? errors : errors.concat(key)
+    ), []);
+
+    setErrors((_) => allErrors);
+
+    /* make errors visible callback without exposing state */
+    if (typeof callback === 'function') callback(allErrors);
   };
 
   return {
@@ -45,5 +60,6 @@ export const useValidations = (rules) => {
     isValid,
     resetErrors,
     validate,
+    validateAll,
   };
 };

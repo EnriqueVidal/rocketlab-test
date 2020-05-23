@@ -78,4 +78,18 @@ describe('validations API', () => {
   test('isValid is just the inverse of isInvalid', () => {
     expect(!result.current.isInvalid('fruit')).toBe(result.current.isValid('fruit'));
   });
+
+  test('validateAll will validate an entire dictionary/form', () => {
+    const form = {
+      name: 'John',
+      email: 'someInvalid',
+      phone: '',
+      zipcode: '123',
+      fruit: 'apple',
+    };
+
+    act(() => result.current.validateAll(form, (allErrors) => {
+      expect(allErrors).toEqual(['email', 'zipcode']);
+    }));
+  });
 });

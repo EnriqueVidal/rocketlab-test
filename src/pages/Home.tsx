@@ -7,6 +7,7 @@ import CancelModal from '../components/CancelModal';
 import Field from '../components/Field';
 import Footer from '../components/Footer';
 import HorizontalField from '../components/HorizontalField';
+import SuccessModal from '../components/SuccessModal';
 import ThinButton from '../components/ThinButton';
 import TypeAhead from '../components/TypeAhead';
 
@@ -50,8 +51,12 @@ const defaultFields = {
 
 const Home = () => {
   const { fields, resetFields, setField } = useForm(defaultFields);
-  const { isInvalid, resetErrors, validate } = useValidations(rules);
+  const {
+    isInvalid, resetErrors, validate, validateAll,
+  } = useValidations(rules);
+
   const { focused: showCancel, toggle: toggleCancel } = useToggle();
+  const { focused: showSuccess, toggle: toggleSuccess } = useToggle();
 
   const uniformHeading = classname(
     'subtitle',
@@ -94,16 +99,26 @@ const Home = () => {
     setField('optOut', checked);
   };
 
+  const saveForm = () => {
+    validateAll(fields, (validationErrors) => {
+      if (validationErrors.length !== 0) return false;
+
+      toggleSuccess();
+      return true;
+    });
+  };
+
   return (
     <div className="page">
       <Helmet defaultTitle="Create Account" />
       <Bar title="Create Contact">
         <div className="buttons is-right">
           <ThinButton primary inverted onClick={toggleCancel}>Cancel</ThinButton>
-          <ThinButton primary disabled>Save</ThinButton>
+          <ThinButton primary onClick={saveForm}>Save</ThinButton>
         </div>
       </Bar>
       <CancelModal show={showCancel} onClose={toggleCancel} onReset={resetForm} />
+      <SuccessModal show={showSuccess} onClose={toggleSuccess} fields={fields} />
       <div className="section">
         <div className="containter is-fluid">
           <form className="form">
