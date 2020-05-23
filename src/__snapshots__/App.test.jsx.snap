@@ -19,7 +19,7 @@ Array [
     className="page"
   >
     <div
-      className="Bar__Wrapper-zz9hha-0 fAeZLA columns is-mobile is-vcentered"
+      className="Bar__Wrapper-zz9hha-0 ePGRaj columns is-mobile"
     >
       <div
         className="column"
@@ -37,7 +37,7 @@ Array [
           className="buttons is-right"
         >
           <button
-            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary is-inverted"
+            className="ThinButton__Button-sc-4cjewm-0 znNbv button is-primary is-inverted"
             disabled={false}
             onClick={[Function]}
             type="button"
@@ -45,8 +45,8 @@ Array [
             Cancel
           </button>
           <button
-            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary"
-            disabled={false}
+            className="ThinButton__Button-sc-4cjewm-0 znNbv button is-primary"
+            disabled={true}
             type="button"
           >
             Save
@@ -92,7 +92,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="firstName"
+                      name="firstName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="John"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -111,7 +118,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="lastName"
+                      name="lastName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="Smith"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -138,7 +152,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="accountName"
+                      name="accountName"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="John's Joinery"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -157,6 +178,12 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="companyName"
+                      name="companyName"
+                      onChange={[Function]}
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -183,7 +210,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="phone"
+                      name="phone"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="02 123 456 78"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -202,7 +236,13 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="fax"
+                      name="fax"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="02 123 456 79"
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -229,7 +269,13 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="title"
+                      name="title"
+                      onChange={[Function]}
                       placeholder="Owner"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -248,8 +294,15 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="email"
+                      name="email"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="some@email.com"
                       type="email"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -264,6 +317,8 @@ Array [
                 Email Opt Out
                  
                 <input
+                  checked={false}
+                  onChange={[Function]}
                   type="checkbox"
                 />
               </label>
@@ -298,7 +353,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="street"
-                      placeholder="1, Elizabeth Stret"
+                      name="street"
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      placeholder="1, Elizabeth Street"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -317,7 +379,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="city"
+                      name="city"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="Sidney"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -334,7 +403,7 @@ Array [
                 >
                   <label
                     className="label has-text-weight-normal"
-                    htmlFor="states"
+                    htmlFor="state"
                   >
                     State
                   </label>
@@ -346,7 +415,9 @@ Array [
                     >
                       <input
                         className="input is-radiusless"
-                        id="states"
+                        id="state"
+                        name="state"
+                        onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
                         placeholder="Search State or Territory"
@@ -403,6 +474,9 @@ Array [
                         </li>
                       </ul>
                     </div>
+                    <span
+                      className="icon is-small is-right"
+                    />
                   </div>
                 </div>
                 <div
@@ -420,7 +494,14 @@ Array [
                     <input
                       className="input is-radiusless"
                       id="postcode"
+                      name="postcode"
+                      onBlur={[Function]}
+                      onChange={[Function]}
                       placeholder="2000"
+                      value=""
+                    />
+                    <span
+                      className="icon is-small is-right"
                     />
                   </div>
                 </div>
@@ -448,8 +529,15 @@ Array [
                 className="control has-icons-right"
               >
                 <textarea
-                  className="textarea"
+                  className="textarea is-radiusless"
+                  name="description"
+                  onBlur={[Function]}
+                  onChange={[Function]}
                   rows={10}
+                  value=""
+                />
+                <span
+                  className="icon is-small is-right"
                 />
               </div>
             </div>

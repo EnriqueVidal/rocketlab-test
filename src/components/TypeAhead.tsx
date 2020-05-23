@@ -2,13 +2,17 @@ import * as React from 'react';
 import styled from 'styled-components';
 import { useToggle } from '../hooks/useToggle';
 import { useFilteredList } from '../hooks/useFilteredList';
-import { useSearch, SearchState } from '../hooks/useSearch';
+import { useSearch } from '../hooks/useSearch';
 
 interface Props {
+  className?: string;
   id: string;
+  name?: string;
+  onBlur?: (event: any) => void;
   onChange?: (option: string) => void;
   options: string[];
-  placeholder: string;
+  placeholder?: string;
+  value: string;
 }
 
 interface ListProps {
@@ -50,39 +54,39 @@ const SearchIcon = styled.i`
   user-select: none;
 `;
 
-
-const defaultInputs: SearchState = {
-  term: '',
-  selected: '',
-};
-
 const TypeAhead = ({
-  id, onChange, options, placeholder,
+  className, id, name, onBlur, onChange, options, placeholder, value,
 }: Props) => {
   const { focused, toggle } = useToggle();
   const { items, filter, reset } = useFilteredList(options);
-  const { inputs, search, select } = useSearch(defaultInputs);
+  const { inputs, search, select } = useSearch({ term: '', selected: value });
 
   const handleSelect = (event) => {
-    const { innerText: value } = event.target;
-    select(value);
+    const { innerText } = event.target;
+    select(innerText);
     toggle();
     reset();
 
-    if (typeof onChange === 'function') onChange(value);
+    if (typeof onChange === 'function') onChange(innerText);
   };
 
   const handleChange = (event) => {
-    const { value } = event.target;
-    search(value);
-    filter(value);
+    const { value: text } = event.target;
+    search(text);
+    filter(text);
+  };
+
+  const handleBlur = () => {
+    onBlur(inputs.selected);
   };
 
   return (
     <Wrapper className="control has-icons-right">
       <input
-        className="input is-radiusless"
+        className={className}
         id={id}
+        name={name}
+        onBlur={handleBlur}
         onChange={handleChange}
         onFocus={toggle}
         placeholder={placeholder}
@@ -93,9 +97,9 @@ const TypeAhead = ({
         <SearchIcon className="material-icons"> search </SearchIcon>
       </span>
       <OptionList show={focused}>
-        {items.map((value: string) => (
-          <SelectableItem key={value} onClick={handleSelect}>
-            {value}
+        {items.map((item: string) => (
+          <SelectableItem key={item} onClick={handleSelect}>
+            {item}
           </SelectableItem>
         ))}
       </OptionList>

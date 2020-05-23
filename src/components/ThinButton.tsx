@@ -5,7 +5,8 @@ import classnames from 'classnames';
 const Button = styled.button`
   border-radius: 2px;
   height: 32px;
-  padding: 0 24px;
+  min-width: 82px;
+  padding: 0 16px;
 `;
 
 interface Props {
