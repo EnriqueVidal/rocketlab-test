@@ -243,7 +243,7 @@ const Home = () => {
               </HorizontalField>
 
               <HorizontalField>
-                <Field htmlFor="state" label="State" isInvalid={isInvalid('state')}>
+                <Field htmlFor="state" label="State">
                   <TypeAhead
                     className={squaredInput('state')}
                     id="state"

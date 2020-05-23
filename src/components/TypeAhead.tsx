@@ -27,12 +27,17 @@ const Wrapper = styled.div`
 
 const OptionList = styled.ul`
   margin: 0px !important;
+  background-color: #fff;
   border-bottom: 1px solid #bbb;
   border-left: 1px solid #bbb;
   border-right: 1px solid #bbb;
   box-shadow: 0 4px 10px 4px #ddd;
   display: ${({ show }: ListProps) => (show ? 'block' : 'none')};
-  position: relative;
+  position: absolute;
+  right:0;
+  left: 0;
+  top: 40px;
+  z-index: 40;
 `;
 
 const SelectableItem = styled.li`
@@ -59,15 +64,30 @@ const TypeAhead = ({
 }: Props) => {
   const { focused, toggle } = useToggle();
   const { items, filter, reset } = useFilteredList(options);
-  const { inputs, search, select } = useSearch({ term: '', selected: value });
+  const {
+    clear, inputs, search, select,
+  } = useSearch(value);
+
+  const searchRef = React.useRef(null);
+
+  React.useEffect(() => {
+    clear(value);
+  }, [value]);
 
   const handleSelect = (event) => {
     const { innerText } = event.target;
+
     select(innerText);
     toggle();
     reset();
 
     if (typeof onChange === 'function') onChange(innerText);
+  };
+
+  const handleLeave = () => {
+    toggle();
+    onBlur(inputs.selected);
+    searchRef.current && searchRef.current.blur();
   };
 
   const handleChange = (event) => {
@@ -76,27 +96,23 @@ const TypeAhead = ({
     filter(text);
   };
 
-  const handleBlur = () => {
-    onBlur(inputs.selected);
-  };
-
   return (
     <Wrapper className="control has-icons-right">
       <input
         className={className}
         id={id}
         name={name}
-        onBlur={handleBlur}
         onChange={handleChange}
         onFocus={toggle}
         placeholder={placeholder}
+        ref={searchRef}
         type="text"
         value={focused ? inputs.term : inputs.selected}
       />
       <span className="icon is-small is-right">
         <SearchIcon className="material-icons"> search </SearchIcon>
       </span>
-      <OptionList show={focused}>
+      <OptionList show={focused} onMouseLeave={handleLeave}>
         {items.map((item: string) => (
           <SelectableItem key={item} onClick={handleSelect}>
             {item}

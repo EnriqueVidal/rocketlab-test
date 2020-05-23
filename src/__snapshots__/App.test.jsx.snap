@@ -417,7 +417,6 @@ Array [
                         className="input is-radiusless"
                         id="state"
                         name="state"
-                        onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
                         placeholder="Search State or Territory"
@@ -434,7 +433,8 @@ Array [
                         </i>
                       </span>
                       <ul
-                        className="TypeAhead__OptionList-udfy0h-1 gNaUim"
+                        className="TypeAhead__OptionList-udfy0h-1 fZZFgC"
+                        onMouseLeave={[Function]}
                       >
                         <li
                           className="TypeAhead__SelectableItem-udfy0h-2 cLNREU"
