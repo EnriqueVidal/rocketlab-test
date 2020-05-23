@@ -19,7 +19,7 @@ Array [
     className="page"
   >
     <div
-      className="Bar__Wrapper-zz9hha-0 fAeZLA columns is-mobile is-vcentered"
+      className="Bar__Wrapper-zz9hha-0 ePGRaj columns is-mobile"
     >
       <div
         className="column"
@@ -37,7 +37,7 @@ Array [
           className="buttons is-right"
         >
           <button
-            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary is-inverted"
+            className="ThinButton__Button-sc-4cjewm-0 znNbv button is-primary is-inverted"
             disabled={false}
             onClick={[Function]}
             type="button"
@@ -45,7 +45,7 @@ Array [
             Cancel
           </button>
           <button
-            className="ThinButton__Button-sc-4cjewm-0 iFsqJE button is-primary"
+            className="ThinButton__Button-sc-4cjewm-0 znNbv button is-primary"
             disabled={true}
             type="button"
           >
@@ -317,6 +317,8 @@ Array [
                 Email Opt Out
                  
                 <input
+                  checked={false}
+                  onChange={[Function]}
                   type="checkbox"
                 />
               </label>
@@ -401,7 +403,7 @@ Array [
                 >
                   <label
                     className="label has-text-weight-normal"
-                    htmlFor="states"
+                    htmlFor="state"
                   >
                     State
                   </label>
@@ -413,7 +415,9 @@ Array [
                     >
                       <input
                         className="input is-radiusless"
-                        id="states"
+                        id="state"
+                        name="state"
+                        onBlur={[Function]}
                         onChange={[Function]}
                         onFocus={[Function]}
                         placeholder="Search State or Territory"
@@ -525,7 +529,7 @@ Array [
                 className="control has-icons-right"
               >
                 <textarea
-                  className="textarea"
+                  className="textarea is-radiusless"
                   name="description"
                   onBlur={[Function]}
                   onChange={[Function]}

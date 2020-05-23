@@ -7,6 +7,8 @@ import { useSearch } from '../hooks/useSearch';
 interface Props {
   className?: string;
   id: string;
+  name?: string;
+  onBlur?: (event: any) => void;
   onChange?: (option: string) => void;
   options: string[];
   placeholder?: string;
@@ -53,7 +55,7 @@ const SearchIcon = styled.i`
 `;
 
 const TypeAhead = ({
-  className, id, onChange, options, placeholder, value,
+  className, id, name, onBlur, onChange, options, placeholder, value,
 }: Props) => {
   const { focused, toggle } = useToggle();
   const { items, filter, reset } = useFilteredList(options);
@@ -74,11 +76,17 @@ const TypeAhead = ({
     filter(text);
   };
 
+  const handleBlur = () => {
+    onBlur(inputs.selected);
+  };
+
   return (
     <Wrapper className="control has-icons-right">
       <input
         className={className}
         id={id}
+        name={name}
+        onBlur={handleBlur}
         onChange={handleChange}
         onFocus={toggle}
         placeholder={placeholder}

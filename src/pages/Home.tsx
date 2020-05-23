@@ -11,9 +11,10 @@ import ThinButton from '../components/ThinButton';
 import TypeAhead from '../components/TypeAhead';
 
 import { states } from '../data/au-states';
-import { useContact } from '../hooks/useContact';
+import { useForm } from '../hooks/useForm';
+import { useToggle } from '../hooks/useToggle';
 import {
-  useValidations, eitherOr, hasFormat, hasLength, isEmail, isEmpty, isPhone,
+  useValidations, eitherOr, hasFormat, hasLength, isEmail, isEmpty, isIncluded, isPhone,
 } from '../hooks/useValidations';
 
 const rules = {
@@ -24,17 +25,33 @@ const rules = {
   fax: eitherOr(isEmpty, isPhone),
   email: isEmail,
   street: hasLength(6),
+  state: isIncluded(states),
   city: hasLength(6),
   postcode: hasFormat(/^\d{4,5}$/),
   description: hasLength(10),
 };
 
-const Home = () => {
-  const { fields, resetFields, setField } = useContact();
-  const { isInvalid, resetErrors, validate } = useValidations(rules);
+const defaultFields = {
+  firstName: '',
+  lastName: '',
+  accountName: '',
+  companyName: '',
+  phone: '',
+  fax: '',
+  title: '',
+  email: '',
+  optOut: false,
+  street: '',
+  city: '',
+  state: '',
+  postcode: '',
+  description: '',
+};
 
-  const [showCancel, setCancel] = React.useState(false);
-  const toggleCancel = () => setCancel((show) => !show);
+const Home = () => {
+  const { fields, resetFields, setField } = useForm(defaultFields);
+  const { isInvalid, resetErrors, validate } = useValidations(rules);
+  const { focused: showCancel, toggle: toggleCancel } = useToggle();
 
   const uniformHeading = classname(
     'subtitle',
@@ -43,8 +60,8 @@ const Home = () => {
     'is-size-4',
   );
 
-  const squaredInput = (name) => classname(
-    'input',
+  const squaredInput = (name: string, defaultClass = 'input') => classname(
+    defaultClass,
     'is-radiusless',
     { 'is-danger': isInvalid(name) },
   );
@@ -66,6 +83,15 @@ const Home = () => {
 
   const handleStateSelect = (value) => {
     setField('state', value);
+  };
+
+  const handleStateBlur = (value) => {
+    validate('state', value);
+  };
+
+  const handleOptOut = (event) => {
+    const { checked } = event.target;
+    setField('optOut', checked);
   };
 
   return (
@@ -184,7 +210,7 @@ const Home = () => {
                 <label className="checkbox">
                   Email Opt Out
                   {' '}
-                  <input type="checkbox" />
+                  <input type="checkbox" onChange={handleOptOut} checked={fields.optOut} />
                 </label>
               </div>
             </div>
@@ -217,10 +243,12 @@ const Home = () => {
               </HorizontalField>
 
               <HorizontalField>
-                <Field htmlFor="states" label="State" isInvalid={isInvalid('state')}>
+                <Field htmlFor="state" label="State" isInvalid={isInvalid('state')}>
                   <TypeAhead
                     className={squaredInput('state')}
-                    id="states"
+                    id="state"
+                    name="state"
+                    onBlur={handleStateBlur}
                     onChange={handleStateSelect}
                     options={states}
                     placeholder="Search State or Territory"
@@ -246,7 +274,7 @@ const Home = () => {
               <h2 className={uniformHeading}>Description Information</h2>
               <Field htmlFor="description" label="Description" isInvalid={isInvalid('description')}>
                 <textarea
-                  className="textarea"
+                  className={squaredInput('description', 'textarea')}
                   name="description"
                   onBlur={handleBlur}
                   onChange={handleChange}

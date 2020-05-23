@@ -9,6 +9,7 @@ export const hasFormat = (expr: RegExp) => (value: string) => expr.test(value);
 export const isEmpty = (value: string) => value.length === 0;
 export const isEmail = hasFormat(EMAIL_EXPRESSION);
 export const isPhone = hasFormat(PHONE_EXPRESSION);
+export const isIncluded = (collection: string[]) => (value: string) => collection.includes(value);
 
 export const eitherOr = (...lambdas) => (value: string) => {
   const recursive = (validations = []) => {
@@ -30,16 +31,18 @@ export const useValidations = (rules) => {
 
   const clearError = (field: string) => setErrors((err) => err.filter((e) => e !== field));
   const isInvalid = (field: string) => errors.includes(field);
+  const isValid = (field: string) => !isInvalid(field);
   const resetErrors = () => setErrors([]);
 
   const validate = (field: string, value: string) => {
     const validator = rules[field];
-    if (typeof validator !== 'function') return null;
+    if (typeof validator !== 'function') return undefined;
     return validator(value) ? clearError(field) : addError(field);
   };
 
   return {
     isInvalid,
+    isValid,
     resetErrors,
     validate,
   };

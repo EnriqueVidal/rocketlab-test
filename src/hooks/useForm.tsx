@@ -1,23 +1,6 @@
 import * as React from 'react';
 
-const defaultFields = {
-  firstName: '',
-  lastName: '',
-  accountName: '',
-  companyName: '',
-  phone: '',
-  fax: '',
-  title: '',
-  email: '',
-  optOut: false,
-  street: '',
-  city: '',
-  state: '',
-  postcode: '',
-  description: '',
-};
-
-export const useContact = (initialState = defaultFields) => {
+export const useForm = (initialState) => {
   const [fields, setFields] = React.useState(initialState);
 
   const resetFields = () => setFields(initialState);
