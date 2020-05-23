@@ -6,7 +6,8 @@
     "jsx": "react",
     "moduleResolution": "node",
     "noEmit": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
     "src"
