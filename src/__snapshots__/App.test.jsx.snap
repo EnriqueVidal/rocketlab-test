@@ -19,7 +19,7 @@ Array [
     className="page"
   >
     <div
-      className="Bar__Wrapper-zz9hha-0 ePGRaj columns is-mobile"
+      className="Bar__Wrapper-zz9hha-0 eBmHyH columns is-mobile has-backgroud-dark-blue"
     >
       <div
         className="column"
@@ -46,7 +46,8 @@ Array [
           </button>
           <button
             className="ThinButton__Button-sc-4cjewm-0 znNbv button is-primary"
-            disabled={true}
+            disabled={false}
+            onClick={[Function]}
             type="button"
           >
             Save

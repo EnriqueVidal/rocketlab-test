@@ -2,7 +2,6 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-  background-color: #06198B;
   margin: 0;
   position: sticky;
   padding 0 10px;
@@ -12,7 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const Bar = ({ children, title }) => (
-  <Wrapper className="columns is-mobile">
+  <Wrapper className="columns is-mobile has-backgroud-dark-blue">
     <div className="column">
       <h1 className="subtitle has-text-white is-size-4">{title}</h1>
     </div>
