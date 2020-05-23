@@ -1,27 +1,25 @@
-const defaults = require('./defaults');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+const defaults = require('./defaults');
 
-const optimization = Object.assign(
-  {}, {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        extractComments: true,
-      }),
+const optimization = {
+  minimize: true,
+  minimizer: [
+    new TerserPlugin({
+      cache: true,
+      parallel: true,
+      extractComments: true,
+    }),
 
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: { safe: true, discardComments: { removeAll: true } },
-      }),
-    ],
-  },
-  defaults.optimization,
-);
+    new OptimizeCSSAssetsPlugin({
+      cssProcessorOptions: { safe: true, discardComments: { removeAll: true } },
+    }),
+  ],
+  ...defaults.optimization,
+};
 
 module.exports = {
   mode: 'production',
@@ -80,7 +78,7 @@ module.exports = {
             options: {
               importLoaders: 2,
               localsConvention: 'camelCase',
-            }
+            },
           },
           { loader: 'resolve-url-loader' },
           {
@@ -103,7 +101,7 @@ module.exports = {
         ],
         loader: 'file-loader',
         options: {
-          name: 'static/media/[name].[hash:8].[ext]',
+          name: 'static/media/[name].[ext]',
         },
       },
     ],
